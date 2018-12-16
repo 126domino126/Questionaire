@@ -58,9 +58,9 @@ h4 {
 
 /* When the checkbox is checked, add a blue background */
 .customcheck input:checked ~ .checkmark {
-  background-color: dodgerblue;
+  background-color: lightskyblue;
   border-radius: 5px;
-  border: dodgerblue solid 1px;
+  border: lightskyblue solid 1px;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */

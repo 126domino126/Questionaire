@@ -83,6 +83,10 @@ export class HomeComponent implements OnInit {
     console.log(this.results);
   }
 
+  onClick() {
+    this.submitted = false;
+  }
+
   getRating(): number {
     const sum = this.rating.reduce(function (a, b) {
       return a + b;
@@ -99,11 +103,11 @@ export class HomeComponent implements OnInit {
     console.log(value);
     if (value.marked === null || (value.marked !== value.answer)) {
       console.log(value.marked, value.answer, 'red');
-      return 'red';
+      return '#ff5b5b';
     }
     if (value.marked === value.answer && value.answer === true) {
       console.log(value.marked, value.answer, 'green');
-      return 'green';
+      return '#7aff8c';
     }
     if (value.marked === value.answer && value.answer) {
       console.log(value.marked, value.answer, 'black');
@@ -113,10 +117,10 @@ export class HomeComponent implements OnInit {
 
   getColor2(value: Value): string {
     if (value.marked !== value.answer) {
-      return 'red';
+      return '#ff5b5b';
     }
     if (value.marked === value.answer) {
-      return 'green';
+      return '#7aff8c';
     }
   }
 }
