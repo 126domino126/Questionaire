@@ -9,23 +9,20 @@ import {CommentWrapper} from '../Model/commentWrapper';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-  private inputs;
-
-  private username = 'Anoným';
-  private question1 = new Question(null, 'Od ktorého veku by mali ženy začať so samovyšetrovaním prsníkov?',
+  public username = 'Anoným';
+  public question1 = new Question(null, 'Od ktorého veku by mali ženy začať so samovyšetrovaním prsníkov?',
     [new Value('od 18 rokov', false, true)
       , new Value('od 20 rokov', false, false)
       , new Value('od 18 rokov', false, false)]);
-  private question2 = new Question(null, 'U ktorých žien je zvýšený výskyt rakoviny prsníkov?',
+  public question2 = new Question(null, 'U ktorých žien je zvýšený výskyt rakoviny prsníkov?',
     [new Value('u žien, ktoré nikdy nerodili alebo nekojili', false, true)
       , new Value('u žien, ktoré otehotneli až po 30. roku života', false, true)
       , new Value('u žien, ktoré mali nástup menopauzy až po 45. roku života', false, false)]);
-  private question3 = new Question(null, 'Ako často by  mali ženy nad 30 rokov vykonávať samovyšetrenie prsníkov?',
+  public question3 = new Question(null, 'Ako často by  mali ženy nad 30 rokov vykonávať samovyšetrenie prsníkov?',
     [new Value('každý týždeň', false, false)
       , new Value('každý mesiac', false, true)
       , new Value('každé tri mesiace', false, false)]);
-  private question4 = new Question(null, 'Čo si všímame pri samovyšetrovaní Prsníkov? ',
+  public question4 = new Question(null, 'Čo si všímame pri samovyšetrovaní Prsníkov? ',
     [new Value('hrčka', false, true)
       , new Value('výtok z bradavky', false, true)
       , new Value('vyrážky/ začervenanie ', false, true)
@@ -36,10 +33,10 @@ export class HomeComponent implements OnInit {
       , new Value('kvapkanie', false, true)
     ]);
 
-  private myRating = 3;
-  private myComment: string;
-  private rating: number[];
-  private comments: CommentWrapper[];
+  public myRating = 3;
+  public myComment: string;
+  public rating: number[];
+  public comments: CommentWrapper[];
 
 
   constructor() {
