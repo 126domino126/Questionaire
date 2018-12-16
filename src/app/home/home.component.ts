@@ -37,14 +37,14 @@ export class HomeComponent implements OnInit {
       , new Value('kvapkanie', false, true)
     ]);
   public question5 = new QuestionImg(null, 'Zoraď obrázky. V Akom poradí sa majú správne vyšetrovať prsníky?',
-    [new ValueImg('/assets/img/1.jpg', null, '1')
-      , new ValueImg('/assets/img/2.jpg', null, '2')
-      , new ValueImg('/assets/img/3.jpg', null, '3')
-      , new ValueImg('/assets/img/4.jpg', null, '4')
+    [new ValueImg('/assets/img/1.jpg', null, '3')
+      , new ValueImg('/assets/img/2.jpg', null, '6')
+      , new ValueImg('/assets/img/3.jpg', null, '1')
+      , new ValueImg('/assets/img/4.jpg', null, '2')
       , new ValueImg('/assets/img/5.jpg', null, '5')
-      , new ValueImg('/assets/img/6.jpg', null, '6')
-      , new ValueImg('/assets/img/7.jpg', null, '7')
-      , new ValueImg('/assets/img/8.jpg', null, '8')
+      , new ValueImg('/assets/img/6.jpg', null, '7')
+      , new ValueImg('/assets/img/7.jpg', null, '8')
+      , new ValueImg('/assets/img/8.jpg', null, '4')
     ]);
 
   public myRating = 3;
@@ -52,7 +52,6 @@ export class HomeComponent implements OnInit {
   public rating: number[];
   public comments: CommentWrapper[];
   public results: ResultsWrapper[];
-
 
   constructor() {
     this.comments = [];
@@ -95,22 +94,17 @@ export class HomeComponent implements OnInit {
   }
 
   checkQuestion(question: any) {
-    console.log(question.values);
     return question.values.reduce((sum, next) => sum && (next.answer === next.marked), true);
   }
 
   getColor(value: Value): string {
-    console.log(value);
     if (value.marked === null || (value.marked !== value.answer)) {
-      console.log(value.marked, value.answer, 'red');
       return '#ff5b5b';
     }
     if (value.marked === value.answer && value.answer === true) {
-      console.log(value.marked, value.answer, 'green');
-      return '#7aff8c';
+      return '#69cc22';
     }
     if (value.marked === value.answer && value.answer) {
-      console.log(value.marked, value.answer, 'black');
       return 'black';
     }
   }
@@ -120,7 +114,7 @@ export class HomeComponent implements OnInit {
       return '#ff5b5b';
     }
     if (value.marked === value.answer) {
-      return '#7aff8c';
+      return '#44a300';
     }
   }
 }

@@ -1,7 +1,18 @@
 @import "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css";
 
+body {
+  background-color: black !important;
+  /*background-image: url("/assets/img/back.jpg");*/
+}
+
+::placeholder {
+  color: #e8006c;
+  opacity: 1;
+}
+
 .jumbotron {
   margin-top: 20px;
+  background: white;
 }
 
 .jumbotron hr {
@@ -21,11 +32,11 @@ h4 {
 .customcheck {
   display: block;
   position: relative;
-  padding-left: 35px;
+  padding-left: 30px;
   margin-bottom: 12px;
   cursor: pointer;
-  font-size: 75%;
-  font-weight: normal;
+  /*font-size: 75%;*/
+  /*font-weight: normal;*/
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -58,9 +69,9 @@ h4 {
 
 /* When the checkbox is checked, add a blue background */
 .customcheck input:checked ~ .checkmark {
-  background-color: lightskyblue;
+  background-color: #e8006c;
   border-radius: 5px;
-  border: lightskyblue solid 1px;
+  border: #e8006c solid 1px;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */

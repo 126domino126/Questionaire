@@ -12,14 +12,14 @@
         <h4>Miroslava Škovranková</h4>
       </div>
     </div>
-    <hr>
+    <hr style="border-color: #e8006c;">
   </div>
   <div class="container">
     <div class="row">
       <div class="col-md-6">
 
         <label><h4>Meno:</h4></label> <br>
-        <input type="text" [(ngModel)]="username" class="form-control">
+        <input type="text" [(ngModel)]="username" class="form-control" style="color: #e8006c;">
 
         <label><h4>{{question1.text}}</h4></label>
         <div *ngFor="let value of question1.values">
@@ -108,7 +108,7 @@
         <br>
         <label for="comment"><h4>Čo nám chceš odkázať, poprípade čo ti nebolo jasne?</h4></label>
 
-        <textarea type="text" class="form-control" style="min-height: 75px; width: 100%" id="comment"
+        <textarea type="text" class="form-control" style="min-height: 75px; width: 100%; color: #e8006c;" id="comment"
                   required
                   [(ngModel)]="myComment" name="comment">
          </textarea>
@@ -117,12 +117,12 @@
   </div>
 
   <div class="container">
-    <div class="col-sm-offset-5 col-md-2 col-xs-2">
-      <button style="margin: 25px;" class="btn btn-primary" (click)="onSubmit()" [disabled]="submitted">Odoslať formulár</button>
+    <div class="text-center">
+      <button style="margin: 25px; color:#fff; background: #e8006c; border: #e8006c" class="btn btn-primary" (click)="onSubmit()" [disabled]="submitted">Odoslať formulár</button>
     </div>
   </div>
-  <hr>
-  <table class="table table-striped">
+  <hr style="border-color: #e8006c;">
+  <table class="table table-striped" style="border-color: #e8006c;">
     <thead>
     <tr>
       <th style="width: 100px">Meno</th>
@@ -132,12 +132,12 @@
     <tbody>
     <tr *ngFor="let com of comments">
       <td>{{com.username}}</td>
-      <td>{{com.text}}</td>
+      <td style="max-width: 75px; overflow-x: scroll; white-space: nowrap;">{{com.text}}</td>
     </tr>
     </tbody>
   </table>
   <br>
-  <table class="table table-striped">
+  <table class="table table-striped" style="border-color: #e8006c;">
     <thead>
     <tr>
       <th style="max-width: 75px">Meno</th>
@@ -150,7 +150,7 @@
     </thead>
     <tbody>
     <tr *ngFor="let res of results">
-      <td style="max-width: 75px; overflow: hidden; text-overflow: ellipsis;">{{res.username}}</td>
+      <td style="max-width: 75px; overflow-x: scroll; white-space: nowrap;">{{res.username}}</td>
       <td>
         <span *ngIf="res.question1" class="glyphicon glyphicon-ok"></span>
         <span *ngIf="!res.question1" class="	glyphicon glyphicon-remove"></span>
