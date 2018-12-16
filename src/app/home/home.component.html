@@ -1,6 +1,17 @@
 <div class="jumbotron">
   <div class="text-center">
     <h2>Dotazník </h2>
+    <div class="row">
+      <div class="col-md-4 col-sm-4">
+        <h4>Miroslava Škovranková:</h4>
+      </div>
+      <div class="col-md-4 col-sm-4">
+        <h4>Miroslava Škovranková:</h4>
+      </div>
+      <div class="col-md-4 col-sm-4">
+        <h4>Miroslava Škovranková:</h4>
+      </div>
+    </div>
     <hr>
   </div>
   <div class="container">
@@ -8,12 +19,13 @@
       <div class="col-md-6">
 
         <label><h4>Meno:</h4></label> <br>
-        <input type="text" [(ngModel)]="username">
+        <input type="text" [(ngModel)]="username" class="form-control">
 
         <label><h4>{{question1.text}}</h4></label>
         <div *ngFor="let value of question1.values">
           <label class="customcheck">{{value.value}}
-            <input type="checkbox" [(ngModel)]="value.marked">
+            <input *ngIf="!submitted" type="checkbox" [(ngModel)]="value.marked">
+            <input *ngIf="submitted" type="checkbox" [(ngModel)]="value.marked" [style.border-color]="getColor(value)">
             <span class="checkmark"></span>
           </label>
         </div>
@@ -38,9 +50,20 @@
         <label><h4>{{question4.text}}</h4></label>
         <div *ngFor="let value of question4.values">
           <label class="customcheck">{{value.value}}
-            <input type="checkbox" [(ngModel)]="value.marked">
+            <input *ngIf="!submitted" type="checkbox" [(ngModel)]="value.marked">
+            <input *ngIf="submitted" type="checkbox" [(ngModel)]="value.marked">
             <span class="checkmark"></span>
           </label>
+        </div>
+
+      </div>
+      <div class="col-md-6">
+        <label><h4>{{question5.text}}</h4></label>
+        <div *ngFor="let value of question5.values" class="col-md-6 col-xs-6 text-center">
+          <img src="{{value.value}}" alt="" class="img-rounded" style="margin: 3px;">
+          <input *ngIf="!submitted" type="text" [(ngModel)]="value.marked"  class="niceInput" placeholder="Zadaj poradie">
+          <input *ngIf="submitted" type="text" [(ngModel)]="value.answer"  class="niceInput" placeholder="Zadaj poradie"
+                 [style.border-color]=getColor2(value)>
         </div>
         <label><h4>Bol si spokojný s našou prácou? </h4></label><br>
         <div class="container">
@@ -83,17 +106,69 @@
         <textarea type="text" class="form-control" style="min-height: 75px; width: 100%" id="comment"
                   required
                   [(ngModel)]="myComment" name="comment">
-    </textarea>
-      </div>
-      <div class="col-md-6">
-
-        <!--<button class="btn-success" (click)="onSubmit()" )>Odoslať</button>-->
-
-        {{myComment}}
-        {{myRating}}
+         </textarea>
       </div>
     </div>
   </div>
+  <div class="container">
+    <div class="col-sm-offset-5 col-md-2 col-xs-2">
+      <button style="margin: 25px;" class="btn btn-primary" (click)="onSubmit()">Odoslať formulár</button>
+    </div>
+  </div>
+  <hr>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th style="width: 100px">Meno</th>
+      <th>Poznámka</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let com of comments">
+      <td>{{com.username}}</td>
+      <td>{{com.text}}</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th style="width: 100px">Meno</th>
+      <th style="width: 50px">1. otázka</th>
+      <th style="width: 50px">2. otázka</th>
+      <th style="width: 50px">3. otázka</th>
+      <th style="width: 50px">4. otázka</th>
+      <th style="width: 50px">5. otázka</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let res of results">
+      <td>{{res.username}}</td>
+      <td>
+        <span *ngIf="res.question1" class="glyphicon glyphicon-ok"></span>
+        <span *ngIf="!res.question1" class="	glyphicon glyphicon-remove"></span>
+      </td>
+      <td>
+        <span *ngIf="res.question2" class="glyphicon glyphicon-ok"></span>
+        <span *ngIf="!res.question2" class="	glyphicon glyphicon-remove"></span>
+      </td>
+      <td>
+        <span *ngIf="res.question3" class="glyphicon glyphicon-ok"></span>
+        <span *ngIf="!res.question3" class="	glyphicon glyphicon-remove"></span>
+      </td>
+      <td>
+        <span *ngIf="res.question4" class="glyphicon glyphicon-ok"></span>
+        <span *ngIf="!res.question4" class="	glyphicon glyphicon-remove"></span>
+      </td>
+      <td>
+        <span *ngIf="res.question5" class="glyphicon glyphicon-ok"></span>
+        <span *ngIf="!res.question5" class="	glyphicon glyphicon-remove"></span>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
 </div>
 
 <footer class="footer" style="padding: 0px; color: white; background: black">
@@ -121,8 +196,3 @@
 
 </footer>
 
-<!--<footer class="footer">-->
-<!--<div class="container">-->
-<!--<span class="text-muted">Place sticky footer content here.</span>-->
-<!--</div>-->
-<!--</footer>-->

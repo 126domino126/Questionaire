@@ -58,9 +58,9 @@ h4 {
 
 /* When the checkbox is checked, add a blue background */
 .customcheck input:checked ~ .checkmark {
-  background-color: #02cf32;
+  background-color: dodgerblue;
   border-radius: 5px;
-  border: #02cf32 solid 1px;
+  border: dodgerblue solid 1px;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
@@ -86,4 +86,13 @@ h4 {
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
+}
+
+.niceInput {
+  width: 95px;
+  margin: 2px;
+  padding: 3px 3px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
