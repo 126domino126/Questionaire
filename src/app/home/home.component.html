@@ -3,13 +3,13 @@
     <h2>Dotazník </h2>
     <div class="row">
       <div class="col-md-4 col-sm-4">
-        <h4>Miroslava Škovranková</h4>
+        <h4>Diana Kútniková</h4>
       </div>
       <div class="col-md-4 col-sm-4">
         <h4>Lucia Neupauerová</h4>
       </div>
       <div class="col-md-4 col-sm-4">
-        <h4>Diana Kútniková</h4>
+        <h4>Miroslava Škovranková</h4>
       </div>
     </div>
     <hr>
@@ -140,17 +140,17 @@
   <table class="table table-striped">
     <thead>
     <tr>
-      <th style="width: 100px">Meno</th>
-      <th style="width: 50px">1. otázka</th>
-      <th style="width: 50px">2. otázka</th>
-      <th style="width: 50px">3. otázka</th>
-      <th style="width: 50px">4. otázka</th>
-      <th style="width: 50px">5. otázka</th>
+      <th style="max-width: 75px">Meno</th>
+      <th style="max-width: 50px">1. ot</th>
+      <th style="max-width: 50px">2. ot</th>
+      <th style="max-width: 50px">3. ot</th>
+      <th style="max-width: 50px">4. ot</th>
+      <th style="max-width: 50px">5. ot</th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let res of results">
-      <td>{{res.username}}</td>
+      <td style="max-width: 75px; overflow: hidden; text-overflow: ellipsis;">{{res.username}}</td>
       <td>
         <span *ngIf="res.question1" class="glyphicon glyphicon-ok"></span>
         <span *ngIf="!res.question1" class="	glyphicon glyphicon-remove"></span>
@@ -174,31 +174,6 @@
     </tr>
     </tbody>
   </table>
-
 </div>
 
-<footer class="footer" style="padding: 0px; color: white; background: black">
-  <div class="container-fluid text-center text-md-left">
-    <div class="row">
-      <div class="col-md-6 mt-md-0 mt-3">
-        <h4>Autori:</h4>
-      </div>
-      <div class="col-md-6 mb-md-0 mb-6">
-
-        <ul class="list-unstyled">
-          <li>
-            <h5>Miroslava Škovranková</h5>
-          </li>
-          <li>
-            <h5>XYZ</h5>
-          </li>
-          <li>
-            <h5>XYZ</h5>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-</footer>
 
