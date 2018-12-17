@@ -125,13 +125,13 @@
   <table class="table table-striped" style="border-color: #e8006c;">
     <thead>
     <tr>
-      <th style="width: 100px">Meno</th>
+      <th style="width: 17%">Meno</th>
       <th>Poznámka</th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let com of comments">
-      <td>{{com.username}}</td>
+      <td style="max-width: 75px; overflow-x: scroll; white-space: nowrap;">{{com.username}}</td>
       <td style="max-width: 75px; overflow-x: scroll; white-space: nowrap;">{{com.text}}</td>
     </tr>
     </tbody>
